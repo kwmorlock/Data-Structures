@@ -21,7 +21,9 @@ class Stack:
         return self.size
 
     def push(self, value):
-        pass
+        # pass
+        self.storage.append(value)
 
     def pop(self):
-        pass
+        # pass
+        self.storage.pop()
