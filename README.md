@@ -1,7 +1,7 @@
 # Data Structures 
 
 Topics:
- * Singly Linked Lists
+ * Singly Linked Lists.
  * Queues and Stacks
  * Doubly Linked Lists
  * Binary Search Trees
