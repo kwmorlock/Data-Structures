@@ -114,9 +114,9 @@ class DoublyLinkedList:
 
     """Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List."""
-    def move_to_end(self, node):#commit
+    def move_to_end(self, node):
         value = node.value
-        self.delete(node)
+        self.delete(node) #need to remove it before we can move it to its new place
         self.add_to_tail(value)
 
     """Removes a node from the list and handles cases where
@@ -139,4 +139,10 @@ class DoublyLinkedList:
         
     """Returns the highest value currently in the list"""
     def get_max(self):
-        pass
+        max = 0 #first thing we do is set a value to max, could also equal self.head.value
+        current_node = self.head #creating a current node that is set to self.head
+        while current_node is not None: #if list is not empty we are going to loop through it
+            if current_node.value > max: #current node is existing in the list,value is greater than zero will go through loop
+                max = current_node.value #the max value will become the current_node value, since its greater than max
+            current_node = current_node.next 
+        return max
