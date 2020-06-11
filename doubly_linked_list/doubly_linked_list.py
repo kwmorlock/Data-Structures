@@ -88,18 +88,21 @@ class DoublyLinkedList:
             self.tail.next = nodes
             self.tail = nodes
 
+
     """Removes the List's current tail node, making the 
     current tail's previous node the new tail of the List.
     Returns the value of the removed Node."""
     def remove_from_tail(self):
-        if self.tail is None:
+        if self.tail is None: #if there is no node present we return none
             return None
-        norm_tail_value, dele_tail = self.tail.value, self.tail.prev
-        self.tail.delete()
-        self.tail = dele_tail
-        if self.tail is None:
+        value = self.tail.value #getting tail value we are trying to remove, self is referring to self on 95
+        if self.head == self.tail: #if there is a node present we will set it to None
             self.head = None
-        return norm_tail_value
+            self.tail = None
+        else: #if more than one node we will delete it
+            self.delete(self.tail)
+        self.length -= 1
+        return value
 
     """Removes the input node from its current spot in the 
     List and inserts it as the new head node of the List."""
