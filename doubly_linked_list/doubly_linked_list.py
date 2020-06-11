@@ -127,6 +127,12 @@ class DoublyLinkedList:
         if node == self.head: #if the node is the head,we have to remove the head node, and assign a new node to become the head
             self.head = node.next
             node.delete()
+        if not self.tail:
+            self.tail = node.prev #because its the last one, if node is a tail, set the previous one to become the new tail
+            node.delete()
+        else: #if node is somewhere in the middle of the list, dont have to re-set head or tail if in middle
+            node.delete()
+        self.length -= 1
         
     """Returns the highest value currently in the list"""
     def get_max(self):
