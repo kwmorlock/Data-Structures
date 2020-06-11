@@ -99,7 +99,7 @@ class DoublyLinkedList:
         if self.head == self.tail: #if there is a node present we will set it to None
             self.head = None
             self.tail = None
-        else: #if more than one node we will delete it
+        else: #if more than one node we will delete it, has to be two otherwise when you delete one it will be zero and make list empty
             self.delete(self.tail)
         self.length -= 1
         return value
@@ -119,7 +119,14 @@ class DoublyLinkedList:
     """Removes a node from the list and handles cases where
     the node was the head or the tail"""
     def delete(self, node):
-        pass
+        if not self.head: #checking to see if list is empty
+            return None 
+        if self.head == self.tail: #if node is present we will set it equal to none
+            self.head = None
+            self.tail = None
+        if node == self.head: #if the node is the head,we have to remove the head node, and assign a new node to become the head
+            self.head = node.next
+            node.delete()
         
     """Returns the highest value currently in the list"""
     def get_max(self):
